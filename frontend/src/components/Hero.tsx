@@ -1,0 +1,28 @@
+import React from "react";
+import { StarIcon, ChatAltIcon } from "@heroicons/react/solid";
+import illustration from "../assets/illustration.png";
+import Button from "./Button";
+const Hero = () => {
+    return (
+        <div className="flex justify-center md:justify-between  items-center flex-wrap">
+            {/* left section */}
+            <div className="space-y-10">
+                <h1 className=" max-w-sm md:text-4xl text-3xl font-bold tracking-wide  ">
+                    <span className="text-red-700">Review</span> Bootcamps, and{" "}
+                    <span className="text-red-700">Certify </span>
+                    Graduates like never before
+                </h1>
+                <div className="flex justify-start gap-2 flex-wrap">
+                    <Button onClick={() => {}}>Review Bootcamps</Button>
+                    <Button onClick={() => {}}>Create Bootcamps</Button>
+                </div>
+                {/* right illustration */}
+            </div>
+            <div>
+                <img src={illustration} width={400} height={400} alt="" />
+            </div>
+        </div>
+    );
+};
+
+export default Hero;
