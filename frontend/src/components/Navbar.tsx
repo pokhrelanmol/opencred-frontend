@@ -5,9 +5,9 @@ import Logo from "../assets/Logo.png";
 const Navbar = () => {
     const [navbarOpen, setNavbarOpen] = useState(false);
     let Links = [
-        { name: "Bootcamps", link: "/" },
-        { name: "Create", link: "/" },
-        { name: "Contact", link: "/" },
+        { name: "Bootcamps", link: "/bootcamps" },
+        { name: "Create Bootcamp", link: "/create-bootcamp" },
+        { name: "Graduate Students", link: "/graduate-student" },
     ];
     let [open, setOpen] = useState(false);
     return (
@@ -23,10 +23,12 @@ const Navbar = () => {
 
                 <div
                     onClick={() => setOpen(!open)}
-                    className=" flex  absolute right-8 top-6 cursor-pointer md:hidden"
+                    className=" flex absolute right-8 top-6 cursor-pointer md:hidden"
                 >
                     {/* <ion-icon name={open ? "close" : "menu"}></ion-icon> */}
-                    <Button onClick={() => {}}>Connect</Button>
+                    <Button onClick={() => {}} buttonType="red-filled">
+                        Connect
+                    </Button>
                     {open ? (
                         <XIcon className="w-10 h-10 ml-10" />
                     ) : (
@@ -50,7 +52,9 @@ const Navbar = () => {
                         </li>
                     ))}
                     <div className="hidden md:block md:ml-8">
-                        <Button onClick={() => {}}>connect</Button>
+                        <Button buttonType="red-filled" onClick={() => {}}>
+                            connect
+                        </Button>
                     </div>
                 </ul>
             </div>

@@ -13,8 +13,12 @@ const Hero = () => {
                     Graduates like never before
                 </h1>
                 <div className="flex justify-start gap-2 flex-wrap">
-                    <Button onClick={() => {}}>Review Bootcamps</Button>
-                    <Button onClick={() => {}}>Create Bootcamps</Button>
+                    <Button onClick={() => {}} buttonType="red-filled">
+                        Review Bootcamps
+                    </Button>
+                    <Button onClick={() => {}} buttonType="blue-outline">
+                        Create Bootcamps
+                    </Button>
                 </div>
                 {/* right illustration */}
             </div>
