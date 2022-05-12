@@ -16,7 +16,7 @@ const Hero = () => {
                     <Button onClick={() => {}} buttonType="red-filled">
                         Review Bootcamps
                     </Button>
-                    <Button onClick={() => {}} buttonType="blue-outline">
+                    <Button onClick={() => {}} buttonType="blue-filled">
                         Create Bootcamps
                     </Button>
                 </div>

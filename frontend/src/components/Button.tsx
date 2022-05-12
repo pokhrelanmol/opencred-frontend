@@ -6,7 +6,6 @@ type ButtonProps = {
     buttonType?: ButtonType;
 };
 const Button = ({ children, onClick, buttonType }: ButtonProps) => {
-    console.log(buttonType);
     const buttonStyles =
         buttonType === "red-filled"
             ? "bg-red-700 hover:bg-red-800 focus:ring-red-300 text-white"
