@@ -4,24 +4,30 @@ type ButtonProps = {
     children: React.ReactNode;
     onClick: () => void;
     buttonType?: ButtonType;
+    disable?: boolean;
 };
-const Button = ({ children, onClick, buttonType }: ButtonProps) => {
+const Button = ({ children, onClick, buttonType, disable }: ButtonProps) => {
     const buttonStyles =
         buttonType === "red-filled"
-            ? "bg-red-700 hover:bg-red-800 focus:ring-red-300 text-white"
+            ? "bg-red hover:bg-white hover:text-red border border-red focus:ring-red-50 text-white"
             : buttonType === "red-outline"
-            ? "bg-white text-red-800 border border-red-700 focus:ring-red-100 "
+            ? "bg-white text-red hover:bg-red border hover:text-white border-red focus:ring-red "
             : buttonType === "blue-filled"
-            ? "bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 text-white"
+            ? "bg-blue hover:bg-white hover:text-blue border border-blue focus:ring-blue text-white"
             : buttonType === "blue-outline"
-            ? "bg-white text-blue-700 border border-blue-700  focus:ring-blue-300"
-            : " text-white bg-blue-700 hover:bg-blue-800 focus:ring-blue-300";
+            ? `bg-white text-blue ${
+                  disable
+                      ? "hover:none"
+                      : "hover:bg-blue  hover:text-white border"
+              } border-blue  focus:ring-blue`
+            : " text-white bg-blue hover:bg-white hover:text-blue border border-blue focus:ring-blue";
 
     return (
         <button
+            disabled={disable}
             type="button"
             onClick={onClick}
-            className={` ${buttonStyles} hover:${buttonStyles} font-sm focus:ring-4 rounded-lg text-sm px-5 py-2 text-center  `}
+            className={` ${buttonStyles} transition ease-in-out delay-150 focus:ring-4 rounded-lg text-xs px-5 py-2 text-center  `}
         >
             {children}
         </button>

@@ -1,8 +1,10 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
+import logo from "./logo.svg";
+import Navbar from "./components/layout/Navbar";
+import Hero from "./components/layout/Hero";
+import WhoWeAre from "./components/layout/WhoWeAre";
+import FeaturedBootcamps from "./components/layout/FeaturedBootcamps";
 
 function App() {
     return (
@@ -12,6 +14,8 @@ function App() {
             </header>
             <main>
                 <Hero />
+                <WhoWeAre />
+                <FeaturedBootcamps />
             </main>
         </div>
     );

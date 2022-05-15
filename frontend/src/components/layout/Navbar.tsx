@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { MenuAlt2Icon, XIcon } from "@heroicons/react/solid";
-import Button from "./Button";
-import Logo from "../assets/newlogo.png";
-import { useWallet } from "../context/WalletContext";
-import { getSignerAddress } from "../provider";
-import CircularLoader from "./CircularLoader";
-import { useTransactionState } from "../context/TransactionStateContext";
-import { getTruncatedAddress } from "../helpers";
+import Button from "../Button";
+import Logo from "../../assets/newlogo.png";
+import { useWallet } from "../../context/WalletContext";
+import { getSignerAddress } from "../../provider";
+import CircularLoader from "../CircularLoader";
+import { useTransactionState } from "../../context/TransactionStateContext";
+import { getTruncatedAddress } from "../../helpers";
 const Navbar = () => {
     const { walletAddress, setWalletAddress } = useWallet();
     const [navbarOpen, setNavbarOpen] = useState(false);
@@ -31,14 +31,13 @@ const Navbar = () => {
     ];
     let [open, setOpen] = useState(false);
     return (
-        <div className="shadow-sm w-full">
+        <div className=" w-full shadow-sm">
             <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
                 <div
                     className="font-bold text-2xl h-10 w-28 cursor-pointer flex items-center 
-      text-[#2B303A]"
+      text-dark"
                 >
-                    {/* <ion-icon name="logo-ionic"></ion-icon> */}
-                    <img className="mr-1 pt-2 h-20 " src={Logo} alt="logo" />
+                    <img className="mr-1 pt-2  " src={Logo} alt="logo" />
                 </div>
 
                 <div
@@ -50,7 +49,11 @@ const Navbar = () => {
                             <CircularLoader />
                         </Button>
                     ) : walletAddress ? (
-                        <Button onClick={() => {}} buttonType="blue-outline">
+                        <Button
+                            onClick={() => {}}
+                            buttonType="blue-outline"
+                            disable={true}
+                        >
                             {getTruncatedAddress(walletAddress)}
                         </Button>
                     ) : (
@@ -72,7 +75,10 @@ const Navbar = () => {
                     }`}
                 >
                     {Links.map((link) => (
-                        <li key={link.name} className="md:ml-8  md:my-0 my-7">
+                        <li
+                            key={link.name}
+                            className="md:ml-8 font-openSans  md:my-0 my-7"
+                        >
                             <a
                                 href={link.link}
                                 className=" text-white md:text-[#2B303A] hover:text-gray-600 duration-500"
