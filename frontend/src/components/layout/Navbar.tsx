@@ -7,10 +7,12 @@ import { getSignerAddress } from "../../provider";
 import CircularLoader from "../CircularLoader";
 import { useTransactionState } from "../../context/TransactionStateContext";
 import { getTruncatedAddress } from "../../helpers";
+import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
     const { walletAddress, setWalletAddress } = useWallet();
     const [navbarOpen, setNavbarOpen] = useState(false);
     const { pending } = useTransactionState();
+    const navigate = useNavigate();
     const connectWallet = async () => {
         const ethereum = (window as any).ethereum;
         if (ethereum) {
@@ -34,6 +36,7 @@ const Navbar = () => {
         <div className=" w-full shadow-sm">
             <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
                 <div
+                    onClick={() => navigate("/")}
                     className="font-bold text-2xl h-10 w-28 cursor-pointer flex items-center 
       text-dark"
                 >
@@ -75,17 +78,13 @@ const Navbar = () => {
                     }`}
                 >
                     {Links.map((link) => (
-                        <li
+                        <Link
+                            to={link.link}
                             key={link.name}
-                            className="md:ml-8 font-openSans  md:my-0 my-7"
+                            className="md:ml-8 font-openSans  md:my-0 my-7  text-white md:text-[#2B303A] hover:text-gray-600 duration-500 "
                         >
-                            <a
-                                href={link.link}
-                                className=" text-white md:text-[#2B303A] hover:text-gray-600 duration-500"
-                            >
-                                {link.name}
-                            </a>
-                        </li>
+                            {link.name}
+                        </Link>
                     ))}
                     <div className="hidden md:block md:ml-8">
                         {pending ? (

@@ -1,9 +1,9 @@
 import React from "react";
-import Flyer from "../../assets/flyer.png";
-import visionImage from "../../assets/vision.png";
-import missionImage from "../../assets/mission.png";
-import valuesImage from "../../assets/values.png";
-import Button from "../Button";
+import Flyer from "../../../assets/flyer.png";
+import visionImage from "../../../assets/vision.png";
+import missionImage from "../../../assets/mission.png";
+import valuesImage from "../../../assets/values.png";
+import Button from "../../Button";
 type ContentsProps = {
     image: string;
     title: string;

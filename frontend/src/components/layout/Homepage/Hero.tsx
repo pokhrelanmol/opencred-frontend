@@ -1,7 +1,7 @@
 import React from "react";
 import { StarIcon, ChatAltIcon } from "@heroicons/react/solid";
-import illustration from "../../assets/illustration.png";
-import Button from "../Button";
+import illustration from "../../../assets/illustration.png";
+import Button from "../../Button";
 const Hero = () => {
     return (
         <div className="flex mt-10 justify-center md:justify-between  items-center flex-wrap">

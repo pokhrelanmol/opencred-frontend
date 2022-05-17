@@ -6,7 +6,7 @@
 }
 .swiper-pagination-bullet-active {
     opacity: 1;
-    background-color: red !important;
+    background-color: black !important;
 }
 
 .swiper-slide {
