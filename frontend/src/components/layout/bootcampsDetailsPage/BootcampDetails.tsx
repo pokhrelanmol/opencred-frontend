@@ -3,7 +3,13 @@ import TopIntroCard from "./TopIntroCard";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { BootcampCardProps } from "../../cards/BootcampCard";
+
 import { LocationMarkerIcon, ShieldCheckIcon } from "@heroicons/react/solid";
+
+import CourseCard from "../../cards/CourseCard";
+import CoursesOffered from "./CoursesOffered";
+import { reviewDummyData } from "../../../dummyData";
+import StudentReviews from "./StudentReviews";
 interface BootcampDetailsType extends BootcampCardProps {
     description: string;
 }
@@ -11,7 +17,6 @@ const BootcampDetails = () => {
     const [bootcampDetails, setBootcampDetails] =
         useState<BootcampDetailsType>();
     const { id } = useParams();
-    console.log(id);
     const fetchBootcamDetails = async () => {
         const response = await axios.get(
             `http://localhost:3001/bootcamp/${id}`
@@ -20,9 +25,9 @@ const BootcampDetails = () => {
     };
     return (
         <div className="">
-            <div className="flex justify-center">
+            <section className="flex justify-center mt-10">
                 <TopIntroCard />
-            </div>
+            </section>
             <h1 className=" my-10 text-3xl font-poppins text-center font-semibold text-dark ">
                 About SpringBoot
             </h1>
@@ -55,11 +60,19 @@ const BootcampDetails = () => {
                     porro laudantium totam deleniti eos accusantium aspernatur
                     animi. Corrupti quia quam, eveniet soluta optio nulla
                     doloribus perferendis molestias odit obcaecati minima
-                    voluptatem harum distinctio accusamus voluptatum, tenetur
+                    voluptatem hacarum distinctio accusamus voluptatum, tenetur
                     labore vel temporibus alias omnis ea hic sed. Laboriosam
                     quae nisi commodi sed beatae voluptas, libero quis. Atque,
                     ullam.
                 </p>
+                {/*  courses card*/}
+
+                <section>
+                    <CoursesOffered />
+                </section>
+                <section className="my-10">
+                    <StudentReviews />
+                </section>
             </div>
         </div>
     );

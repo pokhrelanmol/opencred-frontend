@@ -1,17 +1,16 @@
-import { useState, useRef } from "react";
-import BootcampCard from "../../cards/BootcampCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
-import { BootcampDummyData } from "../../../dummyData";
-const FeaturedBootcamps = () => {
+import { coursesDummyData } from "../../../dummyData";
+import CourseCard from "../../cards/CourseCard";
+const CoursesOffered = () => {
     return (
         <div className="my-10">
             <h1 className=" text-3xl font-poppins text-center font-semibold text-dark my-5">
-                Featured Courses and Bootcamps
+                Courses Offered
             </h1>
 
             <Swiper
@@ -45,27 +44,27 @@ const FeaturedBootcamps = () => {
                 modules={[Pagination, Navigation]}
                 className="mySwiper"
             >
-                {BootcampDummyData.map(
+                {coursesDummyData.map(
                     (
                         {
-                            logo,
+                            image,
                             name,
-                            courses,
                             starCount,
                             reviewCount,
-                            bootcampAddress,
+                            description,
+                            price,
                         },
                         index
                     ) => (
                         <SwiperSlide>
-                            <BootcampCard
+                            <CourseCard
                                 key={index}
-                                logo={logo}
+                                image={image}
                                 name={name}
                                 starCount={starCount}
-                                courses={courses}
+                                description={description}
                                 reviewCount={reviewCount}
-                                bootcampAddress={bootcampAddress}
+                                price={price}
                             />
                         </SwiperSlide>
                     )
@@ -75,4 +74,4 @@ const FeaturedBootcamps = () => {
     );
 };
 
-export default FeaturedBootcamps;
+export default CoursesOffered;
