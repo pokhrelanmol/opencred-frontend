@@ -32,7 +32,7 @@ const BootcampDetails = () => {
                 About SpringBoot
             </h1>
             {/* description */}
-            <div className="flex flex-col gap-10 justify-center text-xs md:text-sm ">
+            <div className="flex flex-col gap-10 justify-center text-xs md:text-sm font-openSans ">
                 <div className="flex justify-between flex-wrap gap-5">
                     <span className="before:content-['Mode:'] flex after:content-['Online'] ">
                         <LocationMarkerIcon className="w-5 h-5 text-red" />

@@ -20,7 +20,7 @@ const CourseCard = ({
     return (
         <div className="">
             {" "}
-            <div className="flex shadow-md flex-col rounded hover:scale-105 cursor-pointer transition-all  ">
+            <div className="flex shadow-md flex-col rounded hover:scale-105 cursor-pointer transition-all font-openSans  ">
                 <img src={image} className=" rounded-t-lg" />
                 <div className="space-y-2 bg-light_pink p-5">
                     <div className="flex justify-between">

@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
     ChatAltIcon,
     LocationMarkerIcon,
@@ -9,7 +10,7 @@ import Button from "../../Button";
 const TopIntroCard = () => {
     const numberOfStarts = 5;
     const reviewCount = 102;
-
+    const navigate = useNavigate();
     return (
         <div className="flex flex-wrap justify-center sm:justify-between w-[500px] border rounded-lg p-5 shadow-penumbra ">
             {/* company logo*/}
@@ -41,7 +42,12 @@ const TopIntroCard = () => {
                     </span>{" "}
                 </div>
                 <div className=" self-end">
-                    <Button buttonType="red-outline" onClick={() => {}}>
+                    <Button
+                        buttonType="red-outline"
+                        onClick={() =>
+                            navigate(`${window.location.pathname}/review`)
+                        }
+                    >
                         WRITE REVIEW
                     </Button>
                 </div>

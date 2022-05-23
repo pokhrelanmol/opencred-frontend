@@ -5,12 +5,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 .gradient{
 background: linear-gradient(180deg, #4D6CFA 44.62%, #535ED1 61.54%, #594C9E 91.54%);
 }
-@layer base{
 body{
       @apply text-dark;
 }
+.inputField{
+      @apply border p-2 md:text-sm border-[#AB4B76] rounded-md text-xs; 
+     
 }
+.dropdown{
 
+      @apply border p-2 border-[#AB4B76] rounded-md bg-white; 
+}

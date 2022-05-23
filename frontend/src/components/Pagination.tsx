@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from "react";
+import { usePagination } from "../context/PaginationContext";
 import Button from "./Button";
 interface PaginationProps {
     showPerPage: number;
-    onPaginationChange: (start: number, end: number) => void;
     noOfItems: number;
 }
-const Pagination = ({
-    showPerPage,
-    onPaginationChange,
-    noOfItems,
-}: PaginationProps) => {
+const Pagination = ({ showPerPage, noOfItems }: PaginationProps) => {
     const [counter, setCounter] = useState(1);
+    const { setPagination } = usePagination();
     useEffect(() => {
         const value = showPerPage * counter;
         const startPoint = value - showPerPage;
         const endPoint = value;
-        onPaginationChange(startPoint, endPoint);
+        setPagination({ start: startPoint, end: endPoint });
     }, [counter]);
     return (
         <div className="flex justify-between ">

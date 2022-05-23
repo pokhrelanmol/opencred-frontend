@@ -4,3 +4,6 @@ export const getTruncatedAddress = (address: string) => {
 export const formatdate = (date: string) => {
     return date.split("/").reverse().join("/");
 };
+export const joinClasses = (...classes: string[]) => {
+    return classes.join(" ");
+};

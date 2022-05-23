@@ -25,8 +25,8 @@ const ReviewCard = ({
     description,
 }: ReviewCardProps) => {
     return (
-        <div className="max-w-max p-5 space-y-2 shadow-penumbra rounded-lg cursor-pointer">
-            <div className="flex items-center space-x-1">
+        <div className="max-w-max p-3 space-y-2 shadow-penumbra font-openSans rounded-lg cursor-pointer">
+            <div className="flex items-center space-x-1 ">
                 <img
                     src={avatar}
                     alt="avatar"
@@ -34,17 +34,17 @@ const ReviewCard = ({
                 />
                 <span>{studentName}</span>
             </div>
-            <div className="flex justify-between max-w-max space-x-8">
+            <div className="flex justify-between max-w-max space-x-8  ">
                 <div className="before:content-['Course:'] w-52">
                     <span className="pl-2 text-gray ">{course}</span>
                 </div>
-                <div className="before:content-['Reviewed-date:']">
+                <div className="before:content-['Reviewed-on:']">
                     <span className="pl-2 text-gray">
                         {formatdate(reviewDate)}
                     </span>
                 </div>
             </div>
-            <div className="before:content-['Completed-on:']">
+            <div className="before:content-['Completed-on:'] ">
                 <span className="pl-2 text-gray">
                     {formatdate(completedOn)}
                 </span>
@@ -66,7 +66,9 @@ const ReviewCard = ({
             <h1 className="text-red font-medium text-center">
                 "{reviewTitle}"
             </h1>
-            <p className="w-96 text-gray text-sm">{description}</p>
+            <p className="w-72 mx-auto md:w-96 text-gray text-xs md:text-sm">
+                {description}
+            </p>
         </div>
     );
 };

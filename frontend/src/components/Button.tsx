@@ -2,11 +2,18 @@ import React from "react";
 type ButtonType = "red-filled" | "red-outline" | "blue-filled" | "blue-outline";
 type ButtonProps = {
     children: React.ReactNode;
-    onClick: () => void;
+    onClick?: () => void;
     buttonType?: ButtonType;
     disable?: boolean;
+    type?: "button" | "submit";
 };
-const Button = ({ children, onClick, buttonType, disable }: ButtonProps) => {
+const Button = ({
+    children,
+    onClick,
+    buttonType,
+    disable,
+    type,
+}: ButtonProps) => {
     const buttonStyles =
         buttonType === "red-filled"
             ? "bg-red hover:bg-white hover:text-red border border-red focus:ring-red-50 text-white"
@@ -25,9 +32,9 @@ const Button = ({ children, onClick, buttonType, disable }: ButtonProps) => {
     return (
         <button
             disabled={disable}
-            type="button"
+            type={`${type ? type : "button"}`}
             onClick={onClick}
-            className={` ${buttonStyles} transition ease-in-out delay-150 focus:ring-4 rounded-lg text-xs px-5 py-2 text-center  `}
+            className={` ${buttonStyles} transition ease-in-out delay-150 focus:ring-4 rounded-lg text-xs px-5 py-2 text-center uppercase  `}
         >
             {children}
         </button>
