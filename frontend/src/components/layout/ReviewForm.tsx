@@ -6,9 +6,12 @@ import Button from "../Button";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import Input from "../Input";
+import Logo from "../../assets/newlogo.png";
 // TODO:make input component
 interface IFormInputs {
     fullName: string;
+    firstName: string;
     email: string;
     school: string;
     course: string;
@@ -36,7 +39,6 @@ const ReviewForm = () => {
         handleSubmit,
         reset,
         setValue,
-        trigger,
         formState: { errors },
     } = useForm<IFormInputs>({
         resolver: yupResolver(schema),
@@ -71,74 +73,72 @@ const ReviewForm = () => {
                     Honest feedback on bootcamps will help us build new money
                     legos that will redefine how skill markets work now.
                 </h1>
+                <div className="flex flex-col justify-center items-center mt-10 ">
+                    <p className="text-2xl text-dark font-bold">SpringBoot</p>
+                    <img src={Logo} width={200} height={200} alt="Logo" />
+                </div>
                 <form
-                    className="p-10 mt-10 md:text-sm text-xs"
+                    className="p-5 md:text-sm text-xs space-y-5"
                     onSubmit={handleSubmit(onSubmitHandler)}
                 >
+                    {/* full name and email */}
                     <div className="grid md:grid-cols-2 grid-cols-1 gap-5 flex-wrap ">
-                        <div className="flex flex-col">
-                            <label htmlFor=""> Full Name</label>
-                            <input
-                                {...register("fullName")}
-                                type="text"
-                                className="inputField"
-                                placeholder="Enter full name"
-                            />
-                            <p className="text-red">
-                                {errors.fullName?.message}
-                            </p>
-                        </div>
-                        <div className="flex flex-col">
-                            <label htmlFor="j"> Email</label>
-                            <input
-                                {...register("email")}
-                                type="email"
-                                className="inputField"
-                                placeholder="Enter email address"
-                            />
-
-                            <p className="text-red">{errors.email?.message}</p>
-                        </div>
+                        <Input
+                            errors={errors}
+                            register={register}
+                            label="Full Name"
+                            name="fullName"
+                            type="text"
+                            placeholder="Full Name"
+                        />
+                        <Input
+                            errors={errors}
+                            register={register}
+                            label="Email"
+                            name="email"
+                            type="email"
+                            placeholder="Email"
+                        />
                     </div>
-                    {/* school,location and course input */}
-                    <div className="flex justify-between gap-3 md:flex-row flex-col  mt-5">
-                        <div className="flex flex-col w-full">
-                            <label htmlFor="">Course</label>
-                            <select
-                                className="dropdown"
-                                {...(register("course"), { required: true })}
-                                onChange={(e) =>
+                    {/* Course and Year*/}
+                    <div className="flex justify-between md:flex-row flex-col gap-5 ">
+                        <div className="w-full">
+                            <Input
+                                name="course"
+                                type="select"
+                                selectOptions={[
+                                    "Web Development",
+                                    "Blockchain",
+                                    "Web 3",
+                                ]}
+                                label="Course"
+                                errors={errors}
+                                register={register}
+                                onChange={(
+                                    e: React.ChangeEvent<
+                                        HTMLInputElement | HTMLSelectElement
+                                    >
+                                ) =>
                                     setValue("course", e.target.value, {
                                         shouldValidate: true,
                                     })
                                 } // Using setValue
-                                id=""
                                 placeholder="Course you did"
-                            >
-                                <option
-                                    value={undefined}
-                                    disabled
-                                    selected={true}
-                                >
-                                    --select--
-                                </option>
-                                <option value="something">something</option>
-                                <option value="something">something</option>
-                                <option value="something">something</option>
-                                <option value="something">something</option>
-                            </select>
-
-                            <p className="text-red">
-                                {errors.course && errors.course.message}
-                            </p>
+                            />
                         </div>
-                        <div className=" flex flex-col w-full ">
-                            <label htmlFor="">Year </label>
-                            <select
-                                className="dropdown"
-                                {...(register("yearOfGraduation"),
-                                { required: true })}
-                                onChange={(e) =>
+                        <div className="w-full">
+                            <Input
+                                name="yearOfGraduation"
+                                type="select"
+                                selectOptions={[2019, 2020, 2021, 2022]}
+                                label="Year Of Graduation"
+                                errors={errors}
+                                register={register}
+                                onChange={(
+                                    e: React.ChangeEvent<
+                                        HTMLInputElement | HTMLSelectElement
+                                    >
+                                ) =>
                                     setValue(
                                         "yearOfGraduation",
                                         e.target.value,
@@ -146,61 +146,31 @@ const ReviewForm = () => {
                                             shouldValidate: true,
                                         }
                                     )
-                                }
-                                name="finishYear"
-                                id=""
-                            >
-                                <option
-                                    value={undefined}
-                                    disabled
-                                    selected={true}
-                                >
-                                    {" "}
-                                    --select--
-                                </option>
-                                <option value="2021">2021</option>
-                                <option value="2020">2020</option>
-                                <option value="2019">2019</option>
-                            </select>
-
-                            <p className="text-red">
-                                {errors.yearOfGraduation &&
-                                    errors.yearOfGraduation.message}
-                            </p>
+                                } // Using setValue
+                                placeholder="Year Of Graduation"
+                            />
                         </div>
                     </div>
-
-                    <div className="mt-5 ">
-                        <label htmlFor="">Review Title</label>
-                        <input
-                            {...register("reviewTitle")}
+                    {/* review title and description */}
+                    <div className="space-y-5">
+                        <Input
                             name="reviewTitle"
-                            className="w-full inputField "
                             type="text"
+                            label="Review Title"
+                            errors={errors}
+                            register={register}
                             placeholder="In one sentense, describe your experience"
                         />
-
-                        <p className="text-red">
-                            {errors.reviewTitle?.message}
-                        </p>
-                    </div>
-                    <div className="my-5">
-                        <label htmlFor="" className="block float-left ">
-                            Description
-                        </label>
-                        <br />
-                        <textarea
-                            {...register("reviewDescription")}
-                            rows={10}
-                            className="inputField w-full"
+                        <Input
+                            name="reviewDescription"
+                            errors={errors}
+                            register={register}
+                            label="Description"
                             placeholder="What are the pros and cons of attending this bootcap? Share your story"
-                        ></textarea>
-
-                        <p className="text-red">
-                            {errors.reviewDescription?.message}
-                        </p>
+                            type="textarea"
+                        />
                     </div>
-
+                    {/* star section */}
                     <div className="">
                         <h1 className="pb-4">
                             How would you rate your expierence
