@@ -81,7 +81,7 @@ const Navbar = () => {
                         <Link
                             to={link.link}
                             key={link.name}
-                            className="md:ml-8 font-openSans  md:my-0 my-7  text-white md:text-[#2B303A] hover:text-gray-600 duration-500 "
+                            className="md:ml-8 font-openSans  md:my-0 my-7  text-white md:text-dark hover:text-gray duration-500 "
                         >
                             {link.name}
                         </Link>
