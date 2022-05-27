@@ -10,6 +10,7 @@ import CourseCard from "../../cards/CourseCard";
 import CoursesOffered from "./CoursesOffered";
 import { reviewDummyData } from "../../../dummyData";
 import StudentReviews from "./StudentReviews";
+import { joinClasses } from "../../../helpers";
 interface BootcampDetailsType extends BootcampCardProps {
     description: string;
 }
@@ -28,13 +29,39 @@ const BootcampDetails = () => {
             <section className="flex justify-center mt-10">
                 <TopIntroCard />
             </section>
-            <h1 className=" my-10 text-3xl font-poppins text-center font-semibold text-dark ">
+            <h1
+                className={joinClasses(
+                    "my-10",
+                    "text-3xl",
+                    "font-poppins",
+                    "text-center",
+                    "font-semibold",
+                    "text-dark"
+                )}
+            >
                 About SpringBoot
             </h1>
             {/* description */}
-            <div className="flex flex-col gap-10 justify-center text-xs md:text-sm font-openSans ">
+            <div
+                className={joinClasses(
+                    "flex",
+                    "flex-col",
+                    "gap-10",
+                    "justify-center",
+                    "text-xs",
+                    "md:text-sm",
+                    "font-openSans"
+                )}
+            >
+                {" "}
                 <div className="flex justify-between flex-wrap gap-5">
-                    <span className="before:content-['Mode:'] flex after:content-['Online'] ">
+                    <span
+                        className={joinClasses(
+                            "before:content-['Mode:']",
+                            "flex",
+                            "after:content-['Online']"
+                        )}
+                    >
                         <LocationMarkerIcon className="w-5 h-5 text-red" />
                     </span>{" "}
                     <p className="flex gap-3 flex-wrap">
@@ -49,7 +76,15 @@ const BootcampDetails = () => {
                         </span>
                     </p>
                 </div>
-                <p className="text-center text-xs md:text-sm text-gray tracking-wide">
+                <p
+                    className={joinClasses(
+                        "text-center",
+                        "text-xs",
+                        "md:text-sm",
+                        "text-gray",
+                        "tracking-wide"
+                    )}
+                >
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad
                     vitae hic dolorum libero consequatur at corporis voluptatem
                     odit quod voluptates, saepe natus aperiam nemo, tenetur
@@ -66,7 +101,6 @@ const BootcampDetails = () => {
                     ullam.
                 </p>
                 {/*  courses card*/}
-
                 <section>
                     <CoursesOffered />
                 </section>

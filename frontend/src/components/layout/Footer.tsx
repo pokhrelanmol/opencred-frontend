@@ -1,4 +1,5 @@
 import React from "react";
+import { joinClasses } from "../../helpers";
 
 const Footer = () => {
     const links = [
@@ -9,11 +10,29 @@ const Footer = () => {
     ];
     return (
         <div>
-            <ul className=" shadow-md bg-light_pink h-20 grid grid-rows-4 md:grid-cols-4 text-center  py-7 ">
+            <ul
+                className={joinClasses(
+                    "shadow-md",
+                    "bg-light_pink",
+                    "h-20",
+                    "grid",
+                    "grid-rows-4",
+                    "md:grid-cols-4",
+                    "text-center ",
+                    "py-7"
+                )}
+            >
+                {" "}
                 {links.map((elem, indx) => (
                     <li
                         key={indx}
-                        className="font-openSans  text-dark text-sm hover:text-gray duration-500"
+                        className={joinClasses(
+                            "font-openSans ",
+                            "text-dark",
+                            "text-sm",
+                            "hover:text-gray",
+                            "duration-500"
+                        )}
                     >
                         <a href={elem.link} className="">
                             {elem.name}

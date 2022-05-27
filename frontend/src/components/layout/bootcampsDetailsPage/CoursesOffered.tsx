@@ -6,10 +6,20 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 import { coursesDummyData } from "../../../dummyData";
 import CourseCard from "../../cards/CourseCard";
+import { joinClasses } from "../../../helpers";
 const CoursesOffered = () => {
     return (
         <div className="my-10">
-            <h1 className=" text-3xl font-poppins text-center font-semibold text-dark my-5">
+            <h1
+                className={joinClasses(
+                    "text-3xl",
+                    "font-poppins",
+                    "text-center",
+                    "font-semibold",
+                    "text-dark",
+                    "my-5"
+                )}
+            >
                 Courses Offered
             </h1>
 

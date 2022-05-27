@@ -1,7 +1,7 @@
 import { StarIcon } from "@heroicons/react/solid";
 import React from "react";
 import Avatar from "../../assets/avatar.png";
-import { formatdate } from "../../helpers";
+import { formatdate, joinClasses } from "../../helpers";
 interface ReviewCardProps {
     avatar: string;
     studentName: string;
@@ -25,7 +25,18 @@ const ReviewCard = ({
     description,
 }: ReviewCardProps) => {
     return (
-        <div className="max-w-max p-3 space-y-2 shadow-penumbra font-openSans rounded-lg cursor-pointer">
+        <div
+            className={joinClasses(
+                "max-w-max",
+                "p-3",
+                "space-y-2",
+                "shadow-penumbra",
+                "font-openSans",
+                "rounded-lg",
+                "cursor-pointer"
+            )}
+        >
+            {" "}
             <div className="flex items-center space-x-1 ">
                 <img
                     src={avatar}
@@ -34,7 +45,15 @@ const ReviewCard = ({
                 />
                 <span>{studentName}</span>
             </div>
-            <div className="flex justify-between max-w-max space-x-8  ">
+            <div
+                className={joinClasses(
+                    "flex",
+                    "justify-between",
+                    "max-w-max",
+                    "space-x-8 "
+                )}
+            >
+                {" "}
                 <div className="before:content-['Course:'] w-52">
                     <span className="pl-2 text-gray ">{course}</span>
                 </div>
@@ -50,7 +69,17 @@ const ReviewCard = ({
                 </span>
             </div>
             <div className=" before:content-['Review:'] flex">
-                <p className="flex space-x-2 text-xs items-center pl-2 text-gray ">
+                <p
+                    className={joinClasses(
+                        "flex",
+                        "space-x-2",
+                        "text-xs",
+                        "items-center",
+                        "pl-2",
+                        "text-gray"
+                    )}
+                >
+                    {" "}
                     <span>5/{starCount}</span>
                     <span className="flex">
                         {new Array(starCount).fill(1).map((elem, indx) => (
@@ -66,7 +95,17 @@ const ReviewCard = ({
             <h1 className="text-red font-medium text-center">
                 "{reviewTitle}"
             </h1>
-            <p className="w-72 mx-auto md:w-96 text-gray text-xs md:text-sm">
+            <p
+                className={joinClasses(
+                    "w-72",
+                    "mx-auto",
+                    "md:w-96",
+                    "text-gray",
+                    "text-xs",
+                    "md:text-sm"
+                )}
+            >
+                {" "}
                 {description}
             </p>
         </div>

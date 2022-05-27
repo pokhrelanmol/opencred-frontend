@@ -7,10 +7,20 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 import { BootcampDummyData } from "../../../dummyData";
+import { joinClasses } from "../../../helpers";
 const FeaturedBootcamps = () => {
     return (
         <div className="my-10">
-            <h1 className=" text-3xl font-poppins text-center font-semibold text-dark my-5">
+            <h1
+                className={joinClasses(
+                    "text-3xl",
+                    "font-poppins",
+                    "text-center",
+                    "font-semibold",
+                    "text-dark",
+                    "my-5"
+                )}
+            >
                 Featured Courses and Bootcamps
             </h1>
 

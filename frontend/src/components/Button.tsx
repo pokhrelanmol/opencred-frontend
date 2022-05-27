@@ -1,4 +1,5 @@
 import React from "react";
+import { joinClasses } from "../helpers";
 type ButtonType = "red-filled" | "red-outline" | "blue-filled" | "blue-outline";
 type ButtonProps = {
     children: React.ReactNode;
@@ -34,7 +35,19 @@ const Button = ({
             disabled={disable}
             type={`${type ? type : "button"}`}
             onClick={onClick}
-            className={` ${buttonStyles} transition ease-in-out delay-150 focus:ring-4 rounded-lg text-xs px-5 py-2 text-center uppercase  `}
+            className={joinClasses(
+                `${buttonStyles}`,
+                "transition",
+                "ease-in-out",
+                "delay-150",
+                "focus:ring-4",
+                "rounded-lg",
+                "text-xs",
+                "px-5",
+                "py-2",
+                "text-center",
+                "uppercase "
+            )}
         >
             {children}
         </button>

@@ -4,6 +4,7 @@ import Button from "../Button";
 import bootcampLogo from "../../assets/Logo.png";
 import { SwiperSlide } from "swiper/react";
 import { useNavigate } from "react-router-dom";
+import { joinClasses } from "../../helpers";
 export interface BootcampCardProps {
     logo: string;
     name: string;
@@ -24,7 +25,22 @@ const BootcampCard = ({
     return (
         <div
             onClick={() => navigate(`bootcamp/${bootcampAddress}`)}
-            className="gradient max-w-min flex flex-col py-4 px-8 cursor-pointer hover:scale-105 transition text-white justify-center items-center space-y-3 rounded-md"
+            className={joinClasses(
+                "gradient",
+                "max-w-min",
+                "flex",
+                "flex-col",
+                "py-4",
+                "px-8",
+                "cursor-pointer",
+                "hover:scale-105",
+                "transition",
+                "text-white",
+                "justify-center",
+                "items-center",
+                "space-y-3",
+                "rounded-md"
+            )}
         >
             <img
                 src={logo}
@@ -33,12 +49,29 @@ const BootcampCard = ({
                 className="rounded-full"
                 alt="bootcamp-logo"
             />
-            <h1 className="font-medium text-lg">{name}</h1>
-            <p className="flex space-x-2 text-xs items-center ">
+            <h1
+                className={joinClasses(
+                    "font-medium",
+                    "text-lg",
+                    "font-openSans"
+                )}
+            >
+                {name}
+            </h1>
+            <p
+                className={joinClasses(
+                    "flex",
+                    "space-x-2",
+                    "text-xs",
+                    "items-center",
+                    "font-openSans"
+                )}
+            >
+                {" "}
                 <span>5/{starCount}</span>
                 <span className="flex">
                     {new Array(starCount).fill(1).map(() => (
-                        <StarIcon className="w-5 h-5 text-star" />
+                        <StarIcon className="w-5 h-5 text-star " />
                     ))}
                 </span>
                 <span className="">{reviewCount}</span>

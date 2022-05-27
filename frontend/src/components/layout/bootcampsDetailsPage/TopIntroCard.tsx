@@ -7,16 +7,36 @@ import {
 } from "@heroicons/react/solid";
 import companyLogo from "../../../assets/flyer.png";
 import Button from "../../Button";
+import { joinClasses } from "../../../helpers";
 const TopIntroCard = () => {
     const numberOfStarts = 5;
     const reviewCount = 102;
     const navigate = useNavigate();
     return (
-        <div className="flex flex-wrap justify-center sm:justify-between w-[500px] border rounded-lg p-5 shadow-penumbra ">
+        <div
+            className={joinClasses(
+                "flex",
+                "flex-wrap",
+                "justify-center",
+                "sm:justify-between",
+                "w-[500px]",
+                "border",
+                "rounded-lg",
+                "p-5",
+                "shadow-penumbra"
+            )}
+        >
+            {" "}
             {/* company logo*/}
             <img
                 src={companyLogo}
-                className="object-fit h-32 w-32 md:h-48 md:w-48"
+                className={joinClasses(
+                    "object-fit",
+                    "h-32",
+                    "w-32",
+                    "md:h-48",
+                    "md:w-48"
+                )}
                 alt="logo"
             />
             {/* right side */}

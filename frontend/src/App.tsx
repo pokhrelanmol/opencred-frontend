@@ -11,6 +11,7 @@ import { PaginationProvider } from "./context/PaginationContext";
 import Footer from "./components/layout/Footer";
 import ReviewForm from "./components/layout/ReviewForm";
 import CreateBootcamp from "./components/layout/CreateBootcamp";
+import CreateCourse from "./components/layout/CreateCourse";
 
 function App() {
     return (
@@ -48,6 +49,10 @@ function App() {
                         <Route
                             path="/create-bootcamp"
                             element={<CreateBootcamp />}
+                        />
+                        <Route
+                            path="/create-course"
+                            element={<CreateCourse />}
                         />
                         <Route path="/graduate-students" />
                     </Routes>

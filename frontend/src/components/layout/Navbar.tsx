@@ -6,8 +6,9 @@ import { useWallet } from "../../context/WalletContext";
 import { getSignerAddress } from "../../provider";
 import CircularLoader from "../CircularLoader";
 import { useTransactionState } from "../../context/TransactionStateContext";
-import { getTruncatedAddress } from "../../helpers";
+import { getTruncatedAddress, joinClasses } from "../../helpers";
 import { Link, useNavigate } from "react-router-dom";
+import { join } from "path";
 const Navbar = () => {
     const { walletAddress, setWalletAddress } = useWallet();
     const [navbarOpen, setNavbarOpen] = useState(false);
@@ -28,24 +29,49 @@ const Navbar = () => {
     };
     let Links = [
         { name: "Bootcamps", link: "/bootcamps" },
-        { name: "Create Bootcamp", link: "/create-bootcamp" },
+        { name: "Create Course", link: "/create-course" },
         { name: "Graduate Students", link: "/graduate-student" },
     ];
     let [open, setOpen] = useState(false);
     return (
         <div className=" w-full shadow-sm">
-            <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
+            <div
+                className={joinClasses(
+                    "md:flex",
+                    "items-center",
+                    "justify-between",
+                    "bg-white",
+                    "py-4",
+                    "md:px-10",
+                    "px-7"
+                )}
+            >
                 <div
                     onClick={() => navigate("/")}
-                    className="font-bold text-2xl h-10 w-28 cursor-pointer flex items-center 
-      text-dark"
+                    className={joinClasses(
+                        "text-dark",
+                        "font-bold",
+                        "text-2xl",
+                        "h-10",
+                        "w-28",
+                        "cursor-pointer",
+                        "flex",
+                        "items-center"
+                    )}
                 >
                     <img className="mr-1 pt-2  " src={Logo} alt="logo" />
                 </div>
 
                 <div
                     onClick={() => setOpen(!open)}
-                    className=" flex absolute right-8 top-6 cursor-pointer md:hidden"
+                    className={joinClasses(
+                        "flex",
+                        "absolute",
+                        "right-8",
+                        "top-6",
+                        "cursor-pointer",
+                        "md:hidden"
+                    )}
                 >
                     {pending ? (
                         <Button onClick={() => {}} buttonType="blue-outline">
@@ -73,15 +99,40 @@ const Navbar = () => {
                 </div>
 
                 <ul
-                    className={`md:flex md:items-center  md:justify-end  md:pb-0 pb-12 absolute md:static    left-0 w-full md:w-auto md:pl-0 pl-9 grow transition-all duration-500 ease-in ${
-                        open ? "top-20 bg-blue-700  " : "top-[-490px]"
-                    }`}
+                    className={joinClasses(
+                        "md:flex",
+                        "md:items-center ",
+                        "md:justify-end ",
+                        "md:pb-0",
+                        "pb-12",
+                        "absolute",
+                        "md:static ",
+                        "left-0",
+                        "w-full",
+                        "md:w-auto",
+                        "md:pl-0",
+                        "pl-9",
+                        "grow",
+                        "transition-all",
+                        "duration-500",
+                        "ease-in",
+                        `${open ? "top-20 bg-blue-700  " : "top-[-490px]"}`
+                    )}
                 >
                     {Links.map((link) => (
                         <Link
                             to={link.link}
                             key={link.name}
-                            className="md:ml-8 font-openSans  md:my-0 my-7  text-white md:text-dark hover:text-gray duration-500 "
+                            className={joinClasses(
+                                "md:ml-8",
+                                "font-openSans ",
+                                "md:my-0",
+                                "my-7 ",
+                                "text-white",
+                                "md:text-dark",
+                                "hover:text-gray",
+                                "duration-500"
+                            )}
                         >
                             {link.name}
                         </Link>
