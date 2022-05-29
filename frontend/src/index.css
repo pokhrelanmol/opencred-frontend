@@ -13,7 +13,7 @@ body{
       @apply text-dark;
 }
 .inputField{
-      @apply border p-2 md:text-sm border-[#AB4B76] rounded-md text-xs; 
+      @apply border p-2  md:text-sm border-[#AB4B76] rounded-md text-xs; 
      
 }
 .dropdown{

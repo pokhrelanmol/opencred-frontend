@@ -67,9 +67,8 @@ const FeaturedBootcamps = () => {
                         },
                         index
                     ) => (
-                        <SwiperSlide>
+                        <SwiperSlide key={index}>
                             <BootcampCard
-                                key={index}
                                 logo={logo}
                                 name={name}
                                 starCount={starCount}

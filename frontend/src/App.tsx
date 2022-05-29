@@ -12,6 +12,7 @@ import Footer from "./components/layout/Footer";
 import ReviewForm from "./components/layout/ReviewForm";
 import CreateBootcamp from "./components/layout/CreateBootcamp";
 import CreateCourse from "./components/layout/CreateCourse";
+import GraduateStudent from "./components/layout/GraduateStudent";
 
 function App() {
     return (
@@ -54,7 +55,10 @@ function App() {
                             path="/create-course"
                             element={<CreateCourse />}
                         />
-                        <Route path="/graduate-students" />
+                        <Route
+                            path="/graduate-student"
+                            element={<GraduateStudent />}
+                        />
                     </Routes>
                 </main>
                 <footer>

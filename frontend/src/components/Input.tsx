@@ -42,7 +42,9 @@ const Input = ({
                         --select--
                     </option>
                     {selectOptions?.map((name, idx) => (
-                        <option value={name}>{name}</option>
+                        <option key={idx} value={name}>
+                            {name}
+                        </option>
                     ))}
                 </select>
             ) : (
