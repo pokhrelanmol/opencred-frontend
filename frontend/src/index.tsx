@@ -5,16 +5,19 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { TransactionStateProvider } from "./context/TransactionStateContext";
 import { WalletProvider } from "./context/WalletContext";
+import { PaginationProvider } from "./context/PaginationContext";
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
 );
 root.render(
     <React.StrictMode>
-        <TransactionStateProvider>
-            <WalletProvider>
-                <App />
-            </WalletProvider>
-        </TransactionStateProvider>
+        <PaginationProvider>
+            <TransactionStateProvider>
+                <WalletProvider>
+                    <App />
+                </WalletProvider>
+            </TransactionStateProvider>
+        </PaginationProvider>
     </React.StrictMode>
 );
 

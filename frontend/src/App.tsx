@@ -7,7 +7,6 @@ import WhoWeAre from "./components/layout/Homepage/WhoWeAre";
 import FeaturedBootcamps from "./components/layout/Homepage/FeaturedBootcamps";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BootcampDetails from "./components/layout/bootcampsDetailsPage/BootcampDetails";
-import { PaginationProvider } from "./context/PaginationContext";
 import Footer from "./components/layout/Footer";
 import ReviewForm from "./components/layout/ReviewForm";
 import CreateBootcamp from "./components/layout/CreateBootcamp";
@@ -54,11 +53,7 @@ function App() {
                         />
                         <Route
                             path="/bootcamp/:id"
-                            element={
-                                <PaginationProvider>
-                                    <BootcampDetails />
-                                </PaginationProvider>
-                            }
+                            element={<BootcampDetails />}
                         />
                         <Route
                             path="/bootcamp/:id/review"

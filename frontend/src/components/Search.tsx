@@ -39,7 +39,11 @@ const Search = <T extends {}>({ dataToFilter }: SearchProps<T>) => {
                 value={searchTerm}
                 className={joinClasses(
                     "border",
-                    "border-blue",
+                    "border-gray",
+                    "hover:shadow-md",
+                    "focus:outline-none",
+                    "focus:shadow-lg",
+                    "transition",
                     "rounded-full",
                     "px-3",
                     "w-52",

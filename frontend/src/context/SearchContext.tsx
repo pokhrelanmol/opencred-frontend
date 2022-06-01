@@ -10,9 +10,7 @@ const SearchContext = createContext<SearchContextProps<EmptyObject>>(
     {} as SearchContextProps<EmptyObject>
 );
 
-export const SearchProvider = <T extends EmptyObject>({
-    children,
-}: ProviderProps) => {
+export const SearchProvider = ({ children }: ProviderProps) => {
     const [filteredData, setFilteredData] = useState<Array<EmptyObject>>([]);
     return (
         <SearchContext.Provider value={{ filteredData, setFilteredData }}>
@@ -25,14 +23,7 @@ export function useSearch<T extends EmptyObject>() {
         SearchContext as unknown as React.Context<SearchContextProps<any>>
     );
     if (!context) {
-        throw new Error("useMyContext must be used under MyContextProvider");
+        throw new Error(" useSearch must be used under SearchProvider");
     }
     return context;
 }
-// export const useSearch = () =>
-
-//     useContext<SearchContextProps<EmptyObject>>(
-//         SearchContext as unknown as React.Context<
-//             SearchContextProps<EmptyObject>
-//         >
-//     );

@@ -7837,6 +7837,11 @@ react@^18.1.0:
   dependencies:
     loose-envify "^1.1.0"
 
+reacty-simplest-pagination@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/reacty-simplest-pagination/-/reacty-simplest-pagination-1.0.0.tgz#e33eeb5d628758ccbbc9936e3ac398c93c49aff9"
+  integrity sha512-su6suY32QEFY7e6smRyL2aP6EjkosBF0cm+rKHAJA9R6NX1TNVqo/Dj28REXNsVoLHhe6YjCtHsxprEqJ0A9fQ==
+
 readable-stream@^2.0.1:
   version "2.3.7"
   resolved "https://registry.npmjs.org/readable-stream/-/readable-stream-2.3.7.tgz"
