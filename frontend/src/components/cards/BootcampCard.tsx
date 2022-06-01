@@ -5,6 +5,7 @@ import bootcampLogo from "../../assets/Logo.png";
 import { SwiperSlide } from "swiper/react";
 import { useNavigate } from "react-router-dom";
 import { joinClasses } from "../../helpers";
+import { GenerateStars } from "../../helpers/GenerateStars";
 export interface BootcampCardProps {
     logo: string;
     name: string;
@@ -69,17 +70,10 @@ const BootcampCard = ({
             >
                 {" "}
                 <span>5/{starCount}</span>
-                <span className="flex">
-                    {new Array(starCount).fill(1).map(() => (
-                        <StarIcon className="w-5 h-5 text-star " />
-                    ))}
-                </span>
+                <GenerateStars numberOfStar={starCount} />
                 <span className="">{reviewCount}</span>
             </p>
             <p className="max-w-xs text-xs">{courses}</p>
-            <Button buttonType="red-outline" onClick={() => {}}>
-                KNOW MORE
-            </Button>
         </div>
     );
 };

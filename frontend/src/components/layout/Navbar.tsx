@@ -8,7 +8,6 @@ import CircularLoader from "../CircularLoader";
 import { useTransactionState } from "../../context/TransactionStateContext";
 import { getTruncatedAddress, joinClasses } from "../../helpers";
 import { Link, useNavigate } from "react-router-dom";
-import { join } from "path";
 const Navbar = () => {
     const { walletAddress, setWalletAddress } = useWallet();
     const [navbarOpen, setNavbarOpen] = useState(false);
@@ -21,14 +20,13 @@ const Navbar = () => {
         }
         const signerAddress = await getSignerAddress();
         if (signerAddress) {
-            console.log("fine here");
             setWalletAddress(signerAddress);
             //  TODO: set success message
         }
         // console.log(walletAddress);
     };
     let Links = [
-        { name: "Bootcamps", link: "/bootcamps" },
+        { name: "All Bootcamps", link: "/all-bootcamps" },
         { name: "Create Course", link: "/create-course" },
         { name: "Graduate Students", link: "/graduate-student" },
     ];
@@ -100,7 +98,9 @@ const Navbar = () => {
 
                 <ul
                     className={joinClasses(
-                        "md:flex",
+                        "flex",
+                        "flex-col",
+                        "md:flex-row",
                         "md:items-center ",
                         "md:justify-end ",
                         "md:pb-0",
@@ -116,7 +116,7 @@ const Navbar = () => {
                         "transition-all",
                         "duration-500",
                         "ease-in",
-                        `${open ? "top-20 bg-blue-700  " : "top-[-490px]"}`
+                        `${open ? "top-20 bg-blue  " : "top-[-490px]"}`
                     )}
                 >
                     {Links.map((link) => (
@@ -127,7 +127,7 @@ const Navbar = () => {
                                 "md:ml-8",
                                 "font-openSans ",
                                 "md:my-0",
-                                "my-7 ",
+                                "my-3 ",
                                 "text-white",
                                 "md:text-dark",
                                 "hover:text-gray",

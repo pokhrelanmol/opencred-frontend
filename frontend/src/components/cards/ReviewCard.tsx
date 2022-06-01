@@ -2,6 +2,7 @@ import { StarIcon } from "@heroicons/react/solid";
 import React from "react";
 import Avatar from "../../assets/avatar.png";
 import { formatdate, joinClasses } from "../../helpers";
+import { GenerateStars } from "../../helpers/GenerateStars";
 interface ReviewCardProps {
     avatar: string;
     studentName: string;
@@ -81,14 +82,7 @@ const ReviewCard = ({
                 >
                     {" "}
                     <span>5/{starCount}</span>
-                    <span className="flex">
-                        {new Array(starCount).fill(1).map((elem, indx) => (
-                            <StarIcon
-                                key={indx}
-                                className="w-5 h-5 text-star"
-                            />
-                        ))}
-                    </span>
+                    <GenerateStars numberOfStar={starCount} />
                     <span className="">{reviewCount}</span>
                 </p>
             </div>

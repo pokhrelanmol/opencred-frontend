@@ -13,10 +13,27 @@ import ReviewForm from "./components/layout/ReviewForm";
 import CreateBootcamp from "./components/layout/CreateBootcamp";
 import CreateCourse from "./components/layout/CreateCourse";
 import GraduateStudent from "./components/layout/GraduateStudent";
+import { joinClasses } from "./helpers";
+import AllBootcamps from "./components/layout/AllBootcamps";
+import { SearchProvider } from "./context/SearchContext";
 
 function App() {
     return (
-        <div className="App max-w-4xl mx-auto font-poppins flex flex-col justify-between min-h-screen">
+        <div
+            className={joinClasses(
+                "App",
+                "max-w-4xl",
+                "mx-auto",
+                "font-poppins",
+                "flex",
+                "flex-col",
+                "justify-between",
+                "min-h-screen",
+                "transition-all",
+                "duration-500",
+                "ease-in"
+            )}
+        >
             <Router>
                 <header>
                     <Navbar />
@@ -58,6 +75,16 @@ function App() {
                         <Route
                             path="/graduate-student"
                             element={<GraduateStudent />}
+                        />
+                        <Route
+                            path="/all-bootcamps"
+                            element={
+                                <>
+                                    <SearchProvider>
+                                        <AllBootcamps />
+                                    </SearchProvider>
+                                </>
+                            }
                         />
                     </Routes>
                 </main>

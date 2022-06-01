@@ -1,6 +1,7 @@
 import React from "react";
 import { coursesDummyData } from "../../dummyData";
 import { StarIcon } from "@heroicons/react/solid";
+import { GenerateStars } from "../../helpers/GenerateStars";
 interface CourseCardProps {
     name: string;
     price: number;
@@ -29,11 +30,7 @@ const CourseCard = ({
                     </div>
                     <p className="flex space-x-2 text-xs items-center ">
                         <span>5/{starCount}</span>
-                        <span className="flex">
-                            {new Array(starCount).fill(1).map(() => (
-                                <StarIcon className="w-5 h-5 text-star" />
-                            ))}
-                        </span>
+                        <GenerateStars numberOfStar={starCount} />
                         <span className="">{reviewCount}</span>
                     </p>
                     <p className="text-left text-sm">{description}</p>

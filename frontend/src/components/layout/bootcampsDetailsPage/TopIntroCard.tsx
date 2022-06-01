@@ -8,8 +8,9 @@ import {
 import companyLogo from "../../../assets/flyer.png";
 import Button from "../../Button";
 import { joinClasses } from "../../../helpers";
+import { GenerateStars } from "../../../helpers/GenerateStars";
 const TopIntroCard = () => {
-    const numberOfStarts = 5;
+    const numberOfStars = 5;
     const reviewCount = 102;
     const navigate = useNavigate();
     return (
@@ -43,12 +44,8 @@ const TopIntroCard = () => {
             <div className="space-y-4 flex flex-col">
                 <h1 className=" font-bold text-lg md:text-2xl  ">SpringBoot</h1>
                 <p className=" flex items-center space-x-2 flex-wrap">
-                    <span className="text-xs">5/{numberOfStarts}</span>
-                    <span className="flex">
-                        {new Array(numberOfStarts).fill(1).map(() => (
-                            <StarIcon className="w-5 h-5 text-star" />
-                        ))}
-                    </span>
+                    <span className="text-xs">5/{numberOfStars}</span>
+                    <GenerateStars numberOfStar={numberOfStars} />
                     <span className="flex  items-center ">
                         <ChatAltIcon className="text-red h-5 w-5" />
                         <span className="text-xs">{reviewCount} Reviews</span>

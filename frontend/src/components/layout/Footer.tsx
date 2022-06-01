@@ -14,12 +14,15 @@ const Footer = () => {
                 className={joinClasses(
                     "shadow-md",
                     "bg-light_pink",
-                    "h-20",
-                    "grid",
-                    "grid-rows-4",
-                    "md:grid-cols-4",
-                    "text-center ",
-                    "py-7"
+                    "gap-2",
+                    "py-5",
+                    "flex",
+                    "flex-col",
+                    "md:flex-row",
+                    "justify-center",
+                    "items-center",
+                    "md:gap-10"
+                    // "py-7"
                 )}
             >
                 {" "}
