@@ -6,8 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Button from "../Button";
 import { joinClasses } from "../../helpers";
-import CSVReader from "react-csv-reader";
-
+import { validateAddress } from "../../helpers/index";
 interface FormInputs {
     course: string;
     students: string[];
@@ -18,21 +17,7 @@ const schema = yup.object().shape({
 });
 
 const GraduateStudent = () => {
-    // handle student on change
-    const [studentToGrauate, setStudentToGraduate] = useState<string>("");
-    // handle state on addStudent Click
     const [studentsToGraduate, setStudentsToGraduate] = useState<string[]>([]);
-
-    //   add students to list
-    const handleAddStudent = (e: React.MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault();
-
-        if (!studentToGrauate) return;
-        setStudentsToGraduate([...studentsToGraduate, studentToGrauate]);
-        setValue("students", [...studentsToGraduate, studentToGrauate]);
-        setStudentToGraduate("");
-    };
-
     const {
         register,
         formState: { errors },
@@ -41,10 +26,26 @@ const GraduateStudent = () => {
         handleSubmit,
     } = useForm<FormInputs>({ resolver: yupResolver(schema) });
     const onSumbit = (data: FormInputs) => {
+        const isValid = studentsToGraduate.every((elem) => {
+            if (!validateAddress(elem)) return false;
+            else return true;
+        });
+        if (isValid) {
+            alert(JSON.stringify(data));
+            reset();
+        } else {
+            alert("invalid address found");
+            reset();
+        }
         // call graduateStudents() of smartcontract
-        alert(JSON.stringify(data));
-        reset();
-        setStudentsToGraduate([]);
+    };
+    const handleTextareaChange = (
+        e: React.ChangeEvent<HTMLTextAreaElement>
+    ) => {
+        const value = e.target.value;
+        const formattedAddress = value.split("\n").filter((n) => n);
+        setStudentsToGraduate(formattedAddress);
+        setValue("students", formattedAddress, { shouldValidate: true });
     };
     return (
         <div className="my-5">
@@ -82,47 +83,20 @@ const GraduateStudent = () => {
 
                 {/* upload csv or add students manually */}
                 <div className="">
-                    <div className={joinClasses("")}>
-                        <div className="">
-                            <p> Add Students </p>
-                            <div className="flex">
-                                <input
-                                    type="text"
-                                    value={studentToGrauate}
-                                    placeholder="student Address"
-                                    className="inputField "
-                                    onChange={(e) =>
-                                        setStudentToGraduate(e.target.value)
-                                    }
-                                />
-
-                                <button
-                                    onClick={handleAddStudent}
-                                    className="bg-red text-center ml-3 cursor-pointer text-white w-8 h-8 rounded-full"
-                                >
-                                    +
-                                </button>
-                            </div>
-                        </div>
-                        <p className={joinClasses("text-2xl text-blue")}>OR </p>
-
-                        <p>Upload csv file </p>
-                        <CSVReader
-                            onFileLoaded={(data, fileInfo, originalFile) => {
-                                console.log(data);
-                                setStudentsToGraduate(data);
-                            }}
-                        />
-                    </div>
-                    <div
-                        className={` ${
-                            studentsToGraduate.length > 0 &&
-                            "list-decimal inputField "
-                        }  `}
-                    >
-                        {studentsToGraduate?.map((address, indx) => (
-                            <p key={indx}>{address}</p>
-                        ))}
+                    <div>
+                        <label htmlFor="">List of the Students</label>
+                        <p className="text-xs my-1 text-gray">
+                            paste the addresses of the students you want to
+                            graduate
+                        </p>
+                        <textarea
+                            name="students"
+                            onChange={handleTextareaChange}
+                            id=""
+                            cols={30}
+                            rows={10}
+                            className="inputField w-full"
+                        ></textarea>
                     </div>
                 </div>
                 <div className="text-center">

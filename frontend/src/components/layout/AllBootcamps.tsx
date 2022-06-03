@@ -63,7 +63,19 @@ const AllBootcamps = () => {
                         All Bootcamps
                     </h1>
 
-                    <div className="grid grid-cols-4 gap-5 mb-4 ">
+                    <div
+                        className={joinClasses(
+                            "grid",
+                            "grid-flow-row",
+                            "grid-rows-1",
+                            "justify-center",
+                            "sm:grid-cols-2",
+                            "md:grid-cols-3",
+                            "ld:grid-cols-4",
+                            "gap-5 ",
+                            "mb-4 "
+                        )}
+                    >
                         {filteredData
                             ?.slice(pagination.start, pagination.end)
                             .map((bootcamp, index) => (
